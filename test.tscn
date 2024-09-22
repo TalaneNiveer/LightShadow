@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://lfsmgiy7vqcv"]
+
+[ext_resource type="PackedScene" uid="uid://bjck818lr2dhv" path="res://light.tscn" id="1_ti5v7"]
+[ext_resource type="Script" path="res://goal.gd" id="2_ydhmq"]
+
+[node name="test" type="Node2D"]
+
+[node name="Light" parent="." instance=ExtResource("1_ti5v7")]
+position = Vector2(436, 198)
+rotation = -1.57079
+
+[node name="Light2" parent="." instance=ExtResource("1_ti5v7")]
+position = Vector2(388, 492)
+light_color = Color(0, 0, 1, 1)
+
+[node name="Light3" parent="." instance=ExtResource("1_ti5v7")]
+position = Vector2(762, 356)
+light_color = Color(0, 1, 0, 1)
+
+[node name="Background" type="Polygon2D" parent="."]
+show_behind_parent = true
+position = Vector2(-104, -96)
+color = Color(0.195313, 0.195313, 0.195313, 1)
+offset = Vector2(100, 100)
+polygon = PackedVector2Array(-8, -16, -8, -16, 1168, -16, 1168, 656, -8, 656)
+
+[node name="Goal" type="Polygon2D" parent="."]
+position = Vector2(1007, 198)
+color = Color(0.523438, 0.523438, 0.523438, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+script = ExtResource("2_ydhmq")

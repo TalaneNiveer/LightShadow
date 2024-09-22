@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjck818lr2dhv"]
+
+[ext_resource type="Script" path="res://light.gd" id="1_bit5k"]
+[ext_resource type="Texture2D" uid="uid://ix2d6bjqhabr" path="res://cone.png" id="2_rwjpd"]
+
+[node name="Light" type="Area2D"]
+script = ExtResource("1_bit5k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-51, -52, -51, -52, 51, -52, 51, 52, -51, 52)
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionPolygon2D"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(-51, -52, 51, -52, 51, -52, 51, 52, -51, 52, -51, 52)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0, 0, 1)
+shadow_enabled = true
+texture = ExtResource("2_rwjpd")
+offset = Vector2(0, 300)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
